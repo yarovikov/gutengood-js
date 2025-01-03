@@ -1,0 +1,20 @@
+{
+  "name": "gutengood-js",
+  "version": "2.0.2",
+  "main": "index.js",
+  "repository": "https://github.com/yarovikov/gutengood-js",
+  "author": "yarovikov <alex.yarovikov@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "devDependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@wordpress/icons": "^10.14.0",
+    "@wordpress/scripts": "^30.7.0",
+    "immutability-helper": "^3.1.1"
+  }
+}

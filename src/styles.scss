@@ -1,0 +1,187 @@
+.gutengood {
+  .components-base-control.is-meta {
+    padding: 16px;
+    background-color: #f2f2f2;
+  }
+
+  .components-datetime__time {
+    max-width: 300px;
+  }
+
+  .components-datetime__time-separator {
+    background-color: #fff;
+  }
+
+  .image-component > div {
+    position: relative;
+    width: auto;
+
+    > div {
+      margin-bottom: 8px;
+      width: 128px;
+      aspect-ratio: 1;
+      overflow: hidden;
+      position: relative;
+
+      .image-component-image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+      }
+
+      .image-component-buttons {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .image-component-buttons button {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+
+  .block-editor-link-control {
+    min-width: auto;
+    max-width: 300px;
+
+    .block-editor-url-input {
+      min-width: 100%;
+    }
+
+    .block-editor-link-control__search-item.is-current {
+      padding: 0;
+    }
+
+    .block-editor-link-control__search-enter {
+      right: 4px;
+    }
+
+    .components-menu-item__item {
+      min-width: 0;
+    }
+
+    .block-editor-link-control__field {
+      margin: 8px 0;
+    }
+
+    .block-editor-link-control__search-input .components-spinner.components-spinner {
+      top: 21px;
+      transform: translateY(-50%);
+    }
+  }
+
+  .file-component {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .file-component-icon {
+      width: 20px;
+      flex-shrink: 0;
+    }
+
+    .file-component-info {
+      display: flex;
+      gap: 8px;
+
+      > div {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .file-component-info-name {
+        word-break: break-all;
+      }
+
+      .file-component-info-size {
+        color: #6b7280;
+        white-space: nowrap;
+        font-size: 12px;
+      }
+    }
+
+    .components-button {
+      padding: 0 !important;
+      height: 24px !important;
+      min-width: 1px !important;
+    }
+  }
+
+  .repeater-component {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .repeater-component-item {
+      display: flex;
+      background-color: #f3f4f6;
+      border: 1px solid #d1d5db;
+    }
+
+    .repeater-component-item-buttons {
+      display: flex;
+      flex-direction: column;
+      width: 40px;
+      flex-shrink: 0;
+      gap: 8px;
+      align-items: center;
+      background-color: #e5e7eb;
+
+      button {
+        box-shadow: none !important;
+      }
+    }
+
+    .repeater-component-item-components {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 16px;
+
+      &.is-collapsed > div {
+        display: none;
+      }
+
+      &.is-collapsed > div:first-child {
+        display: block;
+      }
+    }
+  }
+
+  .repeater-component-add-item-button {
+    display: block;
+    margin: 12px auto 0;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  &.gutengood-fields {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &.gutengood-options {
+    display: flex;
+    flex-direction: column;
+
+    .components-color-picker, .components-datetime__time {
+      .components-base-control {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    .file-component-info {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
