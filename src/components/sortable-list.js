@@ -2,7 +2,7 @@ import {useState, useEffect} from '@wordpress/element';
 import {closestCenter, DndContext, KeyboardSensor, PointerSensor, useSensor, useSensors} from "@dnd-kit/core";
 import {arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy} from "@dnd-kit/sortable";
 import {Button, BaseControl} from '@wordpress/components';
-import {useDispatch} from '@wordpress/data';
+import {useDispatch, useSelect} from '@wordpress/data';
 import {SortableItem} from "./sortable-item";
 
 export const SortableList = ({componentName, fields, meta, props}) => {
@@ -12,7 +12,9 @@ export const SortableList = ({componentName, fields, meta, props}) => {
     setAttributes,
   } = props;
 
-  const items = attributes[componentName];
+  const postMeta = useSelect((select) => meta ? select('core/editor').getEditedPostAttribute('meta') : null);
+
+  const items = meta ? postMeta[componentName] : attributes[componentName];
   const [sortableItems, setSortableItems] = useState([]);
   const {editPost} = useDispatch('core/editor');
 
@@ -54,9 +56,10 @@ export const SortableList = ({componentName, fields, meta, props}) => {
     if (activeIndex !== overIndex) {
       const newItems = arrayMove(sortableItems, activeIndex, overIndex);
       setSortableItems(newItems);
-      setAttributes({[componentName]: newItems});
       if (false !== meta) {
         editPost({meta: {[meta]: newItems}})
+      } else {
+        setAttributes({[componentName]: newItems});
       }
     }
   };
@@ -71,18 +74,20 @@ export const SortableList = ({componentName, fields, meta, props}) => {
 
     const newItems = [...sortableItems, newItem];
     setSortableItems(newItems);
-    setAttributes({[componentName]: newItems});
     if (false !== meta) {
       editPost({meta: {[meta]: newItems}})
+    } else {
+      setAttributes({[componentName]: newItems});
     }
   };
 
   const deleteItem = (id) => {
     const newItems = sortableItems.filter((item) => item.id !== id);
     setSortableItems(newItems);
-    setAttributes({[componentName]: newItems});
     if (false !== meta) {
       editPost({meta: {[meta]: newItems}})
+    } else {
+      setAttributes({[componentName]: newItems});
     }
   };
 
@@ -91,9 +96,10 @@ export const SortableList = ({componentName, fields, meta, props}) => {
       item.id === id ? {...item, [name]: value} : item
     );
     setSortableItems(newItems);
-    setAttributes({[componentName]: newItems});
     if (false !== meta) {
       editPost({meta: {[meta]: newItems}})
+    } else {
+      setAttributes({[componentName]: newItems});
     }
   };
 
