@@ -6,6 +6,7 @@ import {useSelect} from '@wordpress/data';
 import BlockOptions from "./components/block-options";
 import BlockFields from "./components/block-fields";
 import PanelOptions from "./components/panel-options";
+import "./styles.scss";
 
 if ('undefined' !== typeof window.gutengoodBlocks) {
   window.gutengoodBlocks.forEach(block => {
