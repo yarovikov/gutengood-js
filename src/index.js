@@ -37,8 +37,9 @@ if ('undefined' !== typeof window.gutengoodPanels) {
       <PluginDocumentSettingPanel
         name={panel.name}
         title={panel.title}
+        icon={getIcon(panel.icon)}
       >
-        <PanelOptions name={panel.name} />
+        <PanelOptions name={panel.name}/>
       </PluginDocumentSettingPanel>
     );
   }

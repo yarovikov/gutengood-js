@@ -27,6 +27,7 @@ export const File = ({open, remove, file}) => {
               </span>
             </div>
             <Button
+              className='delete-file-button'
               icon={'trash'}
               onClick={remove}
             >

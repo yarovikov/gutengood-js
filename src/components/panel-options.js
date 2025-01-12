@@ -30,7 +30,7 @@ export default function PanelOptions({name}) {
       {data && data.options && data.options.length > 0 && (
         data.options.map((section, index) => {
           return (
-            <div key={index} className='gutengood gutengood-options'>
+            <div key={index} className='gutengood gutengood-panel gutengood-options'>
               <BlockComponents
                 attributes={section.fields}
                 components={section.fields}
