@@ -29,7 +29,7 @@ if ('undefined' !== typeof window.gutengoodBlocks) {
 
 if ('undefined' !== typeof window.gutengoodPanels) {
   const GutengoodPluginDocumentSettingPanel = (panel) => {
-    const postType = useSelect(select => select('core/editor').getCurrentPostType());
+    const postType = useSelect(select => select('core/editor')?.getCurrentPostType() ?? null);
     if (!panel.post_types.includes(postType)) {
       return null;
     }

@@ -2,18 +2,20 @@ import {Spinner, PanelBody} from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import {useState, useEffect} from '@wordpress/element';
 import {InspectorControls} from '@wordpress/block-editor';
-import {useDispatch} from '@wordpress/data';
+import {useDispatch, select} from '@wordpress/data';
 import BlockComponents from "./block-components";
 
 export default function BlockOptions({name, props}) {
 
   const {attributes, setAttributes} = props;
   const [data, setData] = useState([]);
-  const {editPost} = useDispatch('core/editor');
+
+  const isPostEditor = select('core/editor') !== undefined;
+  const {editPost} = isPostEditor ? useDispatch('core/editor') : {};
 
   const onChangeAttribute = (id = null, key, value, metaName = false) => {
     setAttributes({[key]: value})
-    if (false !== metaName) {
+    if (editPost && false !== metaName) {
       editPost({meta: {[metaName]: value}})
     }
   };
