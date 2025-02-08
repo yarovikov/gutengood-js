@@ -4,7 +4,7 @@ import {useState, useEffect} from '@wordpress/element';
 import {BlockControls} from '@wordpress/block-editor';
 import ServerSideRender from '@wordpress/server-side-render';
 import {seen} from '@wordpress/icons';
-import {useDispatch} from '@wordpress/data';
+import {useDispatch, select} from '@wordpress/data';
 import BlockComponents from "./block-components";
 
 export default function BlockFields({name, props}) {
@@ -12,11 +12,13 @@ export default function BlockFields({name, props}) {
   const {attributes, setAttributes} = props;
   const [data, setData] = useState([]);
   const [editMode, setEditMode] = useState(false);
-  const {editPost} = useDispatch('core/editor');
+
+  const isPostEditor = select('core/editor') !== undefined;
+  const {editPost} = isPostEditor ? useDispatch('core/editor') : {};
 
   const onChangeAttribute = (id = null, key, value, metaName = false) => {
     setAttributes({[key]: value})
-    if (false !== metaName) {
+    if (editPost && false !== metaName) {
       editPost({meta: {[metaName]: value}})
     }
   };
