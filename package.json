@@ -14,7 +14,7 @@
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@wordpress/icons": "^10.31.0",
-    "@wordpress/scripts": "^30.25.0",
+    "@wordpress/scripts": "^30.26.0",
     "immutability-helper": "^3.1.1"
   }
 }
