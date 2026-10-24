@@ -1,21 +1,21 @@
 import {
-  TimePicker,
-  TextControl,
-  TextareaControl,
-  ToggleControl,
-  SelectControl,
+  BaseControl,
   ColorPalette,
   ColorPicker,
-  BaseControl,
   RangeControl,
+  SelectControl,
+  TextareaControl,
+  TextControl,
+  TimePicker,
+  ToggleControl,
 } from '@wordpress/components';
 import {
+  __experimentalLinkControl as LinkControl,
   MediaUpload,
   MediaUploadCheck,
   RichText,
-  __experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
-import {useState, useEffect} from '@wordpress/element';
+import {useEffect, useState} from '@wordpress/element';
 import {useSelect} from '@wordpress/data';
 import {ImagePreview} from "./image-preview";
 import {File} from "./file";

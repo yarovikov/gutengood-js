@@ -12,6 +12,7 @@ if ('undefined' !== typeof window.gutengoodBlocks) {
   window.gutengoodBlocks.forEach(block => {
     const name = block.name;
     registerBlockType(name, {
+      apiVersion: 3,
       title: block.title,
       icon: getIcon(block.icon),
       description: block.description,
