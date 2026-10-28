@@ -2,7 +2,7 @@ import {Button} from '@wordpress/components';
 import {useSelect} from '@wordpress/data';
 
 export const ImagePreview = ({open, remove, mediaId}) => {
-  const media = useSelect((select) => select('core').getMedia(mediaId), [mediaId]);
+  const media = useSelect((select) => select('core').getEntityRecord('postType', 'attachment', mediaId), [mediaId]);
   const mediaUrl = media?.media_details?.sizes?.thumbnail?.source_url || media?.source_url || null;
   return (
     <div className='image-component'>
