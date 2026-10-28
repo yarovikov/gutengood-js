@@ -6,6 +6,7 @@ import {useSelect} from '@wordpress/data';
 import BlockOptions from "./components/block-options";
 import BlockFields from "./components/block-fields";
 import PanelOptions from "./components/panel-options";
+import {useBlockProps} from '@wordpress/block-editor';
 import "./styles.scss";
 
 if ('undefined' !== typeof window.gutengoodBlocks) {
@@ -19,8 +20,10 @@ if ('undefined' !== typeof window.gutengoodBlocks) {
       category: block.category,
       edit: (props) => (
         <Fragment>
-          <BlockOptions name={name} props={props}/>
-          <BlockFields name={name} props={props}/>
+          <div {...useBlockProps()}>
+            <BlockOptions name={name} props={props}/>
+            <BlockFields name={name} props={props}/>
+          </div>
         </Fragment>
       ),
       save: () => null,
